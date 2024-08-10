@@ -9,13 +9,16 @@
         "test:ui": "pnpm exec playwright test --ui",
         "codegen": "pnpm exec playwright codegen --browser chromium",
         "report": "pnpm exec playwright show-report",
-        "trace": "pnpm exec playwright show-trace"
+        "trace": "pnpm exec playwright show-trace",
+        "knip": "knip"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "@playwright/test": "^1.45.3",
-        "@types/node": "^22.1.0"
+        "@types/node": "^22.1.0",
+        "knip": "^5.27.2",
+        "typescript": "^5.5.4"
     }
 }

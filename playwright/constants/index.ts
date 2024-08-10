@@ -1,4 +1,3 @@
-export { URLS } from "./urls";
-export { USERNAMES } from "./usernames";
-export { PASSWORD } from "./password";
-export { TITLE } from "./title";
+export * from "./shared";
+export * from "./login";
+export * from "./products";
