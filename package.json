@@ -1,0 +1,21 @@
+{
+    "name": "swag-labs-testing",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "pnpm exec playwright test --project chromium",
+        "test:headed": "pnpm exec playwright test --project chromium --headed",
+        "test:ui": "pnpm exec playwright test --ui",
+        "codegen": "pnpm exec playwright codegen --browser chromium",
+        "report": "pnpm exec playwright show-report",
+        "trace": "pnpm exec playwright show-trace"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@playwright/test": "^1.45.3",
+        "@types/node": "^22.1.0"
+    }
+}
