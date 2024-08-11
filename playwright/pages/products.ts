@@ -11,9 +11,7 @@ export class ProductsPage {
 
     constructor(page: Page) {
         this.page = page;
-
         this.sortDropdown = page.locator('[data-test="product-sort-container"]');
-
         this.shoppingCartLink = page.locator('[data-test="shopping-cart-link"]');
     }
 
