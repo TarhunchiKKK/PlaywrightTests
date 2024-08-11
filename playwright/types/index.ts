@@ -1,1 +1,1 @@
-export type { IPageObjectModel } from "./pageObjectModel";
+export type { IProduct, ProductsSortCompareer } from "./product";

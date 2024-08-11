@@ -1,6 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
-import { URLS } from "../constants";
-import { IPageObjectModel } from "../types";
+import { PASSWORD, URLS, USERNAMES } from "../constants";
 
 const usernameErrorMessage = "Epic sadface: Username is required";
 const passwordErrorMessage = "Epic sadface: Password is required";
@@ -30,6 +29,11 @@ export class LoginPage {
 
     async expectPageTitle(title: string) {
         await expect(this.page).toHaveTitle(title);
+    }
+
+    async successfullLogin() {
+        await this.goto();
+        await this.login(USERNAMES.STANDARD_USER, PASSWORD);
     }
 
     async login(username: string, password: string) {
