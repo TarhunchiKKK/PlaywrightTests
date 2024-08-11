@@ -1,2 +1,3 @@
-export { LoginPage } from "./login";
-export { ProductsPage } from "./products";
+export { LoginPage } from './login';
+export { ProductsPage } from './products';
+export { SidebarObjectmodel } from './sidebar';
