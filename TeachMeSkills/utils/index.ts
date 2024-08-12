@@ -1,1 +1,2 @@
-export { getTokens } from './getTokens';
+export { CredentailsGenerator } from './string-generator';
+export { getTokens } from './get-tokens';

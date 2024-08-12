@@ -4,7 +4,7 @@ import { UserSchema } from './user';
 export const PaginatedUserListSchema = z.object({
     count: z.number().nullable(),
     next: z.string().nullable(),
-    previos: z.string().nullable(),
+    previous: z.string().nullable(),
     result: z.array(UserSchema),
 });
 
