@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 import { API_URL, AUTH_CREDENTAILS, STATUS_CODES } from '../../constants';
 import { CredentailsGenerator, getTokens } from '../../utils';
 import {
-    PasswordResetConfirmRequest,
     SendEmailResetRequest,
     SendEmailResetSchema,
     SetPasswordRequest,
