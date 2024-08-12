@@ -136,4 +136,23 @@ test.describe('Posts tests', () => {
         });
         expect(response.status()).toEqual(STATUS_CODES.OK);
     });
+
+    test('/blog/posts/my_posts/ GET', async ({ request }) => {
+        const limit = 5;
+        const offset = 10;
+
+        const response = await request.get(`${API_URL}/blog/posts/my_posts/`, {
+            headers: {
+                ...authHeaders,
+            },
+            params: {
+                limit,
+                offset,
+            },
+        });
+        expect(response.status()).toEqual(STATUS_CODES.OK);
+
+        const postList = PaginatedPostListSchema.parse(await response.json());
+        expect(postList.results.length).toEqual(limit);
+    });
 });
