@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { API_URL, AUTH_CREDENTAILS, STATUS_CODES } from '../constants';
+import { API_URL, AUTH_CREDENTAILS, STATUS_CODES } from '../../constants';
 import {
     TokenObtainPairRequest,
     TokenObtainPairSchema,
@@ -7,30 +7,18 @@ import {
     TokenRefreshSchema,
     TokenVerifyRequest,
     TokenVerifyRequestSchema,
-} from '../types';
+} from '../../types';
+import { getTokens } from '../../utils';
 
 let accessToken: string;
 let refreshToken: string;
 
-test.describe('Auth tests', async () => {
+test.describe('/auth/jwt/', async () => {
     test.beforeEach(async ({ request }) => {
-        const requestBody: TokenObtainPairRequest = {
-            email: AUTH_CREDENTAILS.EMAIL,
-            password: AUTH_CREDENTAILS.PASSWORD,
-        };
-
-        const response = await request.post(`${API_URL}/auth/jwt/create/`, {
-            data: requestBody,
-        });
-
-        const json = await response.json();
-
-        const { access, refresh } = TokenObtainPairSchema.parse(json);
-
-        [accessToken, refreshToken] = [access, refresh];
+        [accessToken, refreshToken] = await getTokens(request);
     });
 
-    test('/auth/jwt/create/', async ({ request }) => {
+    test('create/', async ({ request }) => {
         const requestBody: TokenObtainPairRequest = {
             email: AUTH_CREDENTAILS.EMAIL,
             password: AUTH_CREDENTAILS.PASSWORD,
@@ -50,7 +38,7 @@ test.describe('Auth tests', async () => {
         expect(refresh).toBeDefined();
     });
 
-    test('/auth/jwt/refresh/', async ({ request }) => {
+    test('refresh/', async ({ request }) => {
         const requestBody: TokenRefreshRequest = {
             refresh: refreshToken,
         };
@@ -68,7 +56,7 @@ test.describe('Auth tests', async () => {
         expect(access).toBeDefined();
     });
 
-    test.fixme('/auth/jwt/verify/', async ({ request }) => {
+    test.fixme('verify/', async ({ request }) => {
         const requestBoody: TokenVerifyRequest = {
             token: accessToken,
         };

@@ -1,6 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import { config as dotenvConfig } from 'dotenv';
-import { resolve } from 'path';
 
 /**
  * Read environment variables from file.
@@ -12,8 +10,6 @@ import { resolve } from 'path';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-
-dotenvConfig({ path: resolve(__dirname, '.env'), override: true });
 
 export default defineConfig({
     testDir: './TeachMeSkills',

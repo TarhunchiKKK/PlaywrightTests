@@ -7,7 +7,6 @@ export const CustomUserCreateSchema = z.object({
         .regex(/^[\w.@+-]+$/)
         .max(150),
     email: z.string().max(254),
-    password: z.string(),
     course_group: z.number().nullable(),
 });
 
